@@ -22,7 +22,7 @@ export default function LinksScreen() {
       <OptionButton
         icon="ios-chatboxes"
         label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
+        onPress={() => WebBrowser.openBrowserAsync('https://api.imgur.com/oauth2/authorize?client_id=1ea9d8b68e5bf9f&response_type=token&state=APPLICATION_STATE')}
         isLastOption
       />
     </ScrollView>
