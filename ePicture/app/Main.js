@@ -6,7 +6,8 @@ import {
     TextInput,
     StyleSheet,
     TouchableHighlight,
-    ScrollView
+    ScrollView,
+    Image
 } from 'react-native';
 
 export default class Main extends React.Component {
@@ -37,7 +38,7 @@ export default class Main extends React.Component {
     render () {
         const items = this.state.results && this.state.results.map(function(el, i) {
             let image_path = "https://image.tmdb.org/t/p/w780" + el.poster_path;
-            return <img src={ image_path }  ></img>
+            return <Image source={{uri: image_path}} key={el.id} style={{width: 480, height: 640}} />
         })
         let favorites = null;
         return (
@@ -61,7 +62,9 @@ export default class Main extends React.Component {
                         <Text style={style.favorites}>RESULTS</Text>
                         {favorites}
                     </View>
-                    { items }
+                    <View>
+                        { items }
+                    </View>                    
                 </ScrollView>
             </View>
         );
