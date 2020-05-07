@@ -33,7 +33,7 @@ export default class Main extends React.Component {
     }
 
     async handleSubmit() {
-        this.setState({ results: (<ViewImages search={this.state.input} />) })
+        await this.setState({ results: (<ViewImages search={this.state.input} />) })
     }
 
     render () {

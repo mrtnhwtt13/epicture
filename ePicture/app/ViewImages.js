@@ -12,13 +12,13 @@ import {
   
 let windowWidth = Dimensions.get('window').width
 import API from './api'
-let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
   
 export default class ViewImages extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            dataSource: ds,
+            dataSource: ds.cloneWithRows(['row 1', 'row 2']),
             loading: true,
             images: []
         }
@@ -27,18 +27,24 @@ export default class ViewImages extends React.Component {
     componentDidMount () {
         API.get(this.props.search)
             .then((response) => {
-                this.setState({ dataSource: ds.cloneWithRows(response.data.items), loading: false })
-                }, (error) => {
+                this.setState({ dataSource: ds.cloneWithRows(response.data.items), loading: false }) 
+            }, (error) => {
                     console.log('error: ', error)
                 })
-            }
+    }
     
     renderRow (rowData) {
-        if (rowData.link.match(/\.(jpg|png|gif)/g)) {
-            return (
-                <View>
-                    <Image source={{ uri: rowData.link }} style={{width: windowWidth, height: windowWidth}} />
-                </View>)
+        if (rowData.images) {
+            if (rowData.images[0].link.match(/\.(jpg|png|gif)/g)) {
+                return (
+                    <View>
+                        <Image source={{ uri: rowData.images[0].link }} style={{width: windowWidth, height: windowWidth}} />
+                    </View>
+                )
+            }
+            else {
+                return null;
+            }
         }
         else {
             return null
