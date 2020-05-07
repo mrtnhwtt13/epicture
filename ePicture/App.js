@@ -1,8 +1,34 @@
-import React from 'react';
-import Main from './app/Main';
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Main from './app/Main'
+import ViewImages from './app/ViewImages';
 
-export default class App extends React.Component {
-  render() {
-    return <Main />;
-  }
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Welcome to Epicture !</Text>
+      <Button
+        title="Start"
+        onPress={() => navigation.navigate('Main')}
+      />
+    </View>
+  );
 }
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" options={{ title: 'Home' }} component={HomeScreen} />
+        <Stack.Screen name="Main" options={{ title: 'Search' }} component={Main} />
+        <Stack.Screen name="ViewImages" options={{ title: 'Results' }} component={ViewImages} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;

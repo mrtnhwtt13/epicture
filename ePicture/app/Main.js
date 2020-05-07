@@ -9,7 +9,6 @@ import {
     ScrollView,
     Image
 } from 'react-native';
-import API from './api'
 import ViewImages from './ViewImages'
 
 export default class Main extends React.Component {
@@ -17,32 +16,29 @@ export default class Main extends React.Component {
     constructor () {
         super()
         this.state = {
-            input: '',
-            results: null
+            input: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this._closeModal = this._closeModal.bind(this);
     }
 
     _closeModal () {
-        this.props.navigator.pop();
+        this.props.navigation.pop()
     }
-    
+
     _updateInput (input) {
         this.setState({ input });
     }
 
-    async handleSubmit() {
-        await this.setState({ results: (<ViewImages search={this.state.input} />) })
+    handleSubmit() {
+        this.props.navigation.push('ViewImages', {closeModal: this._closeModal, search: this.state.input})
     }
 
-    render () {
-        const { results } = this.state;        
+    render () {     
         let favorites = null;
         return (
             <View style={style.container}>
                 <View style={style.headingContainer}>
-                    <Text style={style.heading}>Welcome to ePicture</Text>
+                    <Text style={style.heading}>Search images</Text>
                 </View>
                 <ScrollView style={style.mainContainer}>
                     <TextInput
@@ -59,10 +55,7 @@ export default class Main extends React.Component {
                     <View style={style.favContainer}>
                         <Text style={style.favorites}>RESULTS</Text>
                         {favorites}
-                    </View>
-                    <View>
-                        { results }
-                    </View>                    
+                    </View>               
                 </ScrollView>
             </View>
         );
@@ -129,7 +122,7 @@ const style = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'center'
     },
     button: {
         marginRight: 20,

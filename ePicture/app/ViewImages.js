@@ -24,9 +24,10 @@ export default class ViewImages extends React.Component {
     }
   
     componentDidMount () {
-        API.get(this.props.search)
+        API.get(this.props.route.params.search)
             .then((response) => {
                 this.setState({ dataSource: response.data.items, loading: false }) 
+                console.log(this.state.dataSource)
             }, (error) => {
                     console.log('error: ', error)
                 })
@@ -66,7 +67,7 @@ export default class ViewImages extends React.Component {
   
         return (
             <View style={{flex: 1}}>
-                <TouchableHighlight underlayColor='transparent'  style={style.closeButton}>
+                <TouchableHighlight underlayColor='transparent' onPress={this.props.route.params.closeModal.bind(this)} style={style.closeButton}>
                     <Text style={style.closeButtonText}>CLOSE</Text>
                 </TouchableHighlight>
                 <ScrollView style={{flex: 1}}>
