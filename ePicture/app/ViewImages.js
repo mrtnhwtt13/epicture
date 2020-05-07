@@ -70,9 +70,9 @@ export default class ViewImages extends React.Component {
                 <TouchableHighlight underlayColor='transparent' onPress={this.props.route.params.closeModal.bind(this)} style={style.closeButton}>
                     <Text style={style.closeButtonText}>CLOSE</Text>
                 </TouchableHighlight>
-                <ScrollView style={{flex: 1}}>
+                {/* <ScrollView style={{flex: 1}}> */}
                     {images}
-                </ScrollView>
+                {/* </ScrollView> */}
             </View>
         )
     }
