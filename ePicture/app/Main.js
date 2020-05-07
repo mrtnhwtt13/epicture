@@ -9,6 +9,8 @@ import {
     ScrollView,
     Image
 } from 'react-native';
+import API from './api'
+import ViewImages from './ViewImages'
 
 export default class Main extends React.Component {
 
@@ -16,9 +18,10 @@ export default class Main extends React.Component {
         super()
         this.state = {
             input: '',
-            results: []
+            results: null
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this._closeModal = this._closeModal.bind(this);
     }
 
     _closeModal () {
@@ -30,16 +33,11 @@ export default class Main extends React.Component {
     }
 
     async handleSubmit() {
-        let resp = await fetch('https://api.themoviedb.org/3/search/movie?api_key=eb803997160f46de136642d8ee023920&query=' + this.state.input + '&language=fr-FR')
-        let respJson = await resp.json();
-        this.setState({results: respJson.results})  
+        this.setState({ results: (<ViewImages search={this.state.input} />) })
     }
 
     render () {
-        const items = this.state.results && this.state.results.map(function(el, i) {
-            let image_path = "https://image.tmdb.org/t/p/w780" + el.poster_path;
-            return <Image source={{uri: image_path}} key={el.id} style={{width: 480, height: 640}} />
-        })
+        const { results } = this.state;        
         let favorites = null;
         return (
             <View style={style.container}>
@@ -63,7 +61,7 @@ export default class Main extends React.Component {
                         {favorites}
                     </View>
                     <View>
-                        { items }
+                        { results }
                     </View>                    
                 </ScrollView>
             </View>
