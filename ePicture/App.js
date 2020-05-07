@@ -3,6 +3,8 @@ import { Button, Image, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
+import * as FileSystem from 'expo-file-system';
+
 
 export default class ImagePickerExample extends React.Component {
   state = {
@@ -41,14 +43,35 @@ export default class ImagePickerExample extends React.Component {
         allowsEditing: false,
         aspect: [4, 3],
         quality: 1,
+        noData: false
       });
       if (!result.cancelled) {
         this.setState({ image: result.uri });
       }
 
       console.log(result);
+      const base64 = await FileSystem.readAsStringAsync(result.uri, { encoding: 'base64' });
+      //console.log(base64)
+      uploadToImgur(base64)
     } catch (E) {
       console.log(E);
     }
   };
+}
+
+const uploadToImgur = (base64) => {
+ 
+  fetch('https://api.imgur.com/3/upload', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Client-ID 1ea9d8b68e5bf9f'
+    },
+    body: JSON.stringify({
+      'image': base64
+    })
+  })
+  .then(response => console.log(response))
+  .catch(error => {
+    console.error(error);
+  });
 }
