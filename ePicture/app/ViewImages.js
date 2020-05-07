@@ -7,18 +7,17 @@ import {
     ScrollView,
     Image,
     Dimensions,
-    ListView
+    FlatList
 } from 'react-native'
+import API from './api'
   
 let windowWidth = Dimensions.get('window').width
-import API from './api'
-const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
   
 export default class ViewImages extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            dataSource: ds.cloneWithRows(['row 1', 'row 2']),
+            dataSource: null,
             loading: true,
             images: []
         }
@@ -27,7 +26,7 @@ export default class ViewImages extends React.Component {
     componentDidMount () {
         API.get(this.props.search)
             .then((response) => {
-                this.setState({ dataSource: ds.cloneWithRows(response.data.items), loading: false }) 
+                this.setState({ dataSource: response.data.items, loading: false }) 
             }, (error) => {
                     console.log('error: ', error)
                 })
@@ -62,7 +61,7 @@ export default class ViewImages extends React.Component {
         }
   
         if (!loading) {
-            images = <ListView dataSource={this.state.dataSource} renderRow={this.renderRow.bind(this)} />
+            images = <FlatList data={this.state.dataSource} renderItem={({item}) => this.renderRow(item)} />
         }
   
         return (
