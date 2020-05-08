@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './app/Home';
 import Main from './app/Main';
 import ViewImages from './app/ViewImages';
+import Connect from './app/Connect';
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,11 @@ export default class App extends React.Component {
                         name="ViewImages"
                         options={{ title: 'Results' }}
                         component={ViewImages}
+                    />
+                    <Stack.Screen
+                        name="Connect"
+                        options={{ title: 'Connect' }}
+                        component={Connect}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
