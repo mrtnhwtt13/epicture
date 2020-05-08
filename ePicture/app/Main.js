@@ -46,6 +46,7 @@ export default class Main extends React.Component {
                         onChangeText={(text) => this._updateInput(text)}
                         style={style.input}
                         placeholder='What Do You Like?'
+                        onSubmitEditing={() => this.handleSubmit()}
                     />
                     <View style={style.buttonContainer}>
                         <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.handleSubmit()}>

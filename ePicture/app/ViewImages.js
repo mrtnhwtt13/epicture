@@ -37,9 +37,25 @@ export default class ViewImages extends React.Component {
         if (rowData.images) {
             if (rowData.images[0].link.match(/\.(jpg|png|gif)/g)) {
                 return (
-                    <View>
-                        <Image source={{ uri: rowData.images[0].link }} style={{width: windowWidth, height: windowWidth}} />
-                    </View>
+                    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginBottom: "10px" }}>
+                        <View style={{ backgroundColor: "#4e4f61", borderRadius: 10, overflow: "hidden" }}>
+                            <View>
+                                <Image
+                                    source={{ uri: rowData.images[0].link }}
+                                    style={{
+                                        height: windowWidth - 10,
+                                        width: windowWidth - 10
+                                    }}
+                                />
+                            </View>
+                            <View style={{ padding: 10, width: 155 }}>
+                                <Text>Title</Text>
+                                <Text style={{ color: "#777", paddingTop: 5 }}>
+                                    Description of the image
+                                </Text>
+                            </View>
+                        </View>
+                    </View>                    
                 )
             }
             else {
@@ -66,19 +82,46 @@ export default class ViewImages extends React.Component {
         }
   
         return (
-            <View style={{flex: 1}}>
-                <TouchableHighlight underlayColor='transparent' onPress={this.props.route.params.closeModal.bind(this)} style={style.closeButton}>
-                    <Text style={style.closeButtonText}>CLOSE</Text>
-                </TouchableHighlight>
-                {/* <ScrollView style={{flex: 1}}> */}
-                    {images}
-                {/* </ScrollView> */}
-            </View>
+            <View style={style.container}>
+                <View style={style.headingContainer}>
+                    <Text style={style.heading}>{ this.props.route.params.search }</Text>
+                </View>
+                <ScrollView style={style.mainContainer}>                    
+                    <View style={style.resultsContainer}>
+                        <Text style={style.results}>RESULTS</Text>                        
+                    </View>
+                    <View style={{flex: 1}}>
+                        <TouchableHighlight underlayColor='transparent' onPress={this.props.route.params.closeModal.bind(this)} style={style.closeButton}>
+                            <Text style={style.closeButtonText}>CLOSE</Text>
+                        </TouchableHighlight>
+                        <View style={{flex: 1}}>
+                            {images}
+                        </View>
+                    </View>             
+                </ScrollView>
+            </View>       
         )
     }
 }
   
 const style = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    headingContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 100,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ededed'
+    },
+    heading: {
+        fontSize: 20,
+        marginTop: 20
+    },
+    mainContainer: {
+        flex: 1
+    },
     closeButton: {
         height: 100,
         justifyContent: 'center',
@@ -98,5 +141,18 @@ const style = StyleSheet.create({
     loading: {
         fontSize: 22,
         color: '#7f7f7f'
+    },
+    results: {
+        color: '#c9c9c9',
+        textAlign: 'center',
+        fontSize: 13,
+        fontWeight: 'bold',
+        marginBottom: 17
+    },
+    resultsContainer: {
+        marginTop: 20,
+        paddingTop: 20,
+        borderTopWidth: 1,
+        borderTopColor: '#ededed'
     }
 })
