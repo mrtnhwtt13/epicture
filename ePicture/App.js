@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from './app/Main'
@@ -9,10 +9,11 @@ function HomeScreen({ navigation }) {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Welcome to Epicture !</Text>
-            <Button
-                title="Start"
-                onPress={() => navigation.navigate('Main')}
-            />
+            <View style={style.buttonContainer}>
+                <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => navigation.navigate('Main')}>
+                    <Text style={style.buttonText}>Start</Text>
+                </TouchableHighlight>
+            </View>
         </View>
     );
 }
@@ -58,7 +59,26 @@ function App() {
 
 //console.disableYellowBox = true;
 
-//init branch
-
+const style = StyleSheet.create({    
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    button: {
+        marginRight: 20,
+        marginTop: 15,
+        padding: 15,
+        paddingLeft: 30,
+        paddingRight: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#3b5998',
+        borderRadius: 4
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: 'bold'
+    }
+})
 
 export default App;

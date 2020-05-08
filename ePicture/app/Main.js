@@ -52,11 +52,7 @@ export default class Main extends React.Component {
                         <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.handleSubmit()}>
                             <Text style={style.buttonText}>Search</Text>
                         </TouchableHighlight>
-                    </View>
-                    <View style={style.favContainer}>
-                        <Text style={style.favorites}>RESULTS</Text>
-                        {favorites}
-                    </View>               
+                    </View>                            
                 </ScrollView>
             </View>
         );
