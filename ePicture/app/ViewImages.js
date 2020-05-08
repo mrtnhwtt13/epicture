@@ -37,9 +37,9 @@ export default class ViewImages extends React.Component {
         if (rowData.images) {
             if (rowData.images[0].link.match(/\.(jpg|png|gif)/g)) {
                 return (
-                    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginBottom: "10px" }}>
+                    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginBottom: 10 }}>
                         <View style={{ backgroundColor: "#4e4f61", borderRadius: 10, overflow: "hidden" }}>
-                            <View style={{ padding: 10, width: 155 }}>                                
+                            <View style={{ padding: 10, width:"100%" }}>                                
                                 <Text style={{ color: "#fff", paddingTop: 5 }}>
                                     { rowData.images[0].description }
                                 </Text>                                
