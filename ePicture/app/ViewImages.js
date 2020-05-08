@@ -27,7 +27,6 @@ export default class ViewImages extends React.Component {
         API.get(this.props.route.params.search)
             .then((response) => {
                 this.setState({ dataSource: response.data.items, loading: false }) 
-                console.log(this.state.dataSource)
             }, (error) => {
                     console.log('error: ', error)
                 })
@@ -50,8 +49,8 @@ export default class ViewImages extends React.Component {
                             </View>
                             <View style={{ padding: 10, width: 155 }}>
                                 <Text>Title</Text>
-                                <Text style={{ color: "#777", paddingTop: 5 }}>
-                                    Description of the image
+                                <Text style={{ color: "#fff", paddingTop: 5 }}>
+                                    { rowData.images[0].description }
                                 </Text>
                             </View>
                         </View>
