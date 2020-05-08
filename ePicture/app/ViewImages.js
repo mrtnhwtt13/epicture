@@ -9,6 +9,7 @@ import {
     Dimensions,
     FlatList
 } from 'react-native'
+import { Ionicons } from '@expo/vector-icons';
 import API from './api'
   
 let windowWidth = Dimensions.get('window').width
@@ -38,6 +39,11 @@ export default class ViewImages extends React.Component {
                 return (
                     <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginBottom: "10px" }}>
                         <View style={{ backgroundColor: "#4e4f61", borderRadius: 10, overflow: "hidden" }}>
+                            <View style={{ padding: 10, width: 155 }}>                                
+                                <Text style={{ color: "#fff", paddingTop: 5 }}>
+                                    { rowData.images[0].description }
+                                </Text>                                
+                            </View>                            
                             <View>
                                 <Image
                                     source={{ uri: rowData.images[0].link }}
@@ -48,9 +54,12 @@ export default class ViewImages extends React.Component {
                                 />
                             </View>
                             <View style={{ padding: 10, width: 155 }}>
-                                <Text>Title</Text>
                                 <Text style={{ color: "#fff", paddingTop: 5 }}>
-                                    { rowData.images[0].description }
+                                    { rowData.images[0].datetime }
+                                </Text>                                
+                                <Text style={{ color: "#fff", paddingTop: 5 }}>
+                                    <Ionicons name="md-eye" size={26} color="white" />
+                                    { rowData.images[0].views }
                                 </Text>
                             </View>
                         </View>
