@@ -7,42 +7,42 @@ import ViewImages from './app/ViewImages';
 
 const Stack = createStackNavigator();
 
-function App() {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator
-                initialRouteName="Home"
-                screenOptions={{
-                    headerStyle: {
-                        backgroundColor: '#3c3c46',
-                    },
-                    headerTintColor: '#fff',
-                    headerTitleStyle: {
-                        fontWeight: 'bold',
-                    },
-                    headerTitleAlign: 'center'
-                }}
-            >
-                <Stack.Screen
-                    name="Home"
-                    options={{ title: 'Home' }}
-                    component={HomeScreen}
-                />
-                <Stack.Screen
-                    name="Main"
-                    options={{ title: 'Search' }}
-                    component={Main}
-                />
-                <Stack.Screen
-                    name="ViewImages"
-                    options={{ title: 'Results' }}
-                    component={ViewImages}
-                />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
+export default class App extends React.Component {
+    render () {
+        return (
+            <NavigationContainer>
+                <Stack.Navigator
+                    initialRouteName="Home"
+                    screenOptions={{
+                        headerStyle: {
+                            backgroundColor: '#3c3c46',
+                        },
+                        headerTintColor: '#fff',
+                        headerTitleStyle: {
+                            fontWeight: 'bold',
+                        },
+                        headerTitleAlign: 'center'
+                    }}
+                >
+                    <Stack.Screen
+                        name="Home"
+                        options={{ title: 'Home' }}
+                        component={HomeScreen}
+                    />
+                    <Stack.Screen
+                        name="Main"
+                        options={{ title: 'Search' }}
+                        component={Main}
+                    />
+                    <Stack.Screen
+                        name="ViewImages"
+                        options={{ title: 'Results' }}
+                        component={ViewImages}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        );
+    }
 }
 
 //console.disableYellowBox = true;
-
-export default App;
