@@ -84,7 +84,7 @@ export default class ViewImages extends React.Component {
         return (
             <View style={style.container}>
                 <View style={style.headingContainer}>
-                    <Text style={style.heading}>{ this.props.route.params.search }</Text>
+                    <Text style={style.heading}>Search for { this.props.route.params.search }</Text>
                 </View>
                 <ScrollView style={style.mainContainer}>                    
                     <View style={style.resultsContainer}>
