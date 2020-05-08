@@ -1,2 +1,2 @@
 # epicture
-school project
+school project in React Native, WIP
