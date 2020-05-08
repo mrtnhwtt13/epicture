@@ -57,14 +57,27 @@ export default class ImagePickerExample extends React.Component {
     }
   };
   
- uploadToImgur = () => {
+  uploadToImgur = () => {
+    authorizeApp = () => {
+      fetch('https://api.imgur.com/oauth2/authorize?client_id=1ea9d8b68e5bf9f&response_type=token', {
+        method: 'POST',
+      //   headers: {
+      //       'Authorization': 'Client-ID 1ea9d8b68e5bf9f'
+      // },
+      })
+      .then(response => console.log(JSON.stringify(response)))
+  .catch(error => {
+      console.error(JSON.stringify(error));
+    });
+    }
   fetch('https://api.imgur.com/3/upload', {
       method: 'POST',
       headers: {
           'Authorization': 'Client-ID 1ea9d8b68e5bf9f'
     },
     body: JSON.stringify({
-        'image': this.state.data
+        'image': this.state.data,
+        'type': 'base64'
     })
   })
   .then(response => console.log(JSON.stringify(response)))
