@@ -32,6 +32,10 @@ export default class ViewImages extends React.Component {
                     console.log('error: ', error)
                 })
     }
+
+    _closeModal () {
+        this.props.navigation.pop()
+    }
     
     renderRow (rowData) {
         if (rowData.images) {
@@ -98,7 +102,7 @@ export default class ViewImages extends React.Component {
                         <Text style={style.results}>RESULTS</Text>                        
                     </View>
                     <View style={{flex: 1}}>
-                        <TouchableHighlight underlayColor='transparent' onPress={this.props.route.params.closeModal.bind(this)} style={style.closeButton}>
+                        <TouchableHighlight underlayColor='transparent' onPress={this._closeModal.bind(this)} style={style.closeButton}>
                             <Text style={style.closeButtonText}>CLOSE</Text>
                         </TouchableHighlight>
                         <View style={{flex: 1}}>

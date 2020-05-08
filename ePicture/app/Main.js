@@ -2,14 +2,11 @@ import React from 'react';
 import {
     View,
     Text,
-    Component,
     TextInput,
     StyleSheet,
     TouchableHighlight,
-    ScrollView,
-    Image
+    ScrollView
 } from 'react-native';
-import ViewImages from './ViewImages'
 
 export default class Main extends React.Component {
 
@@ -20,17 +17,13 @@ export default class Main extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    _closeModal () {
-        this.props.navigation.pop()
-    }
-
+        
     _updateInput (input) {
         this.setState({ input });
     }
 
     handleSubmit() {
-        this.props.navigation.push('ViewImages', {closeModal: this._closeModal, search: this.state.input})
+        this.props.navigation.push('ViewImages', {search: this.state.input})
     }
 
     render () {     
