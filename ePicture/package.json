@@ -12,6 +12,7 @@
     "@react-navigation/native": "^5.2.4",
     "@react-navigation/stack": "^5.2.19",
     "expo": "~37.0.3",
+    "expo-auth-session": "^1.2.1",
     "expo-sqlite": "~8.1.0",
     "node-pre-gyp": "^0.14.0",
     "react": "~16.9.0",

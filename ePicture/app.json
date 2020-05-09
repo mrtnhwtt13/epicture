@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "mycoolredirect",
     "name": "ePicture",
     "slug": "ePicture",
     "platforms": [
