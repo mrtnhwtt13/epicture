@@ -8,6 +8,7 @@ import {
     ScrollView
 } from 'react-native';
 
+
 export default class Main extends React.Component {
 
     constructor () {
@@ -23,11 +24,10 @@ export default class Main extends React.Component {
     }
 
     handleSubmit() {
-        this.props.navigation.push('ViewImages', {search: this.state.input})
+        this.props.navigation.push('Results', {search: this.state.input})
     }
 
-    render () {     
-        let favorites = null;
+    render () {   
         return (
             <View style={style.container}>
                 <View style={style.headingContainer}>
@@ -52,23 +52,8 @@ export default class Main extends React.Component {
     }
 }
 
-const style = StyleSheet.create({
-    favoriteButtonContainer: {
-        flexDirection: 'row'
-    },
-    deleteButton: {
-        width: 57,
-        height: 57,
-        marginRight: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: 1,
-        borderColor: '#e6e6e6'
-    },
-    deleteText: {
-        color: '#979797',
-        fontSize: 30
-    },
+
+const style = StyleSheet.create({    
     headingContainer: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -82,22 +67,6 @@ const style = StyleSheet.create({
     },
     container: {
         flex: 1
-    },
-    favorite: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 13,
-        marginLeft: 15,
-        marginRight: 5,
-        borderWidth: 1,
-        borderColor: '#e6e6e6',
-        marginBottom: 10,
-        borderRadius: 4,
-        flex: 1
-    },
-    favoriteText: {
-        fontSize: 24,
-        color: '#9f9f9f'
     },
     input: {
         height: 60,
@@ -128,19 +97,6 @@ const style = StyleSheet.create({
     buttonText: {
         color: 'white',
         fontWeight: 'bold'
-    },
-    favContainer: {
-        marginTop: 20,
-        paddingTop: 20,
-        borderTopWidth: 1,
-        borderTopColor: '#ededed'
-    },
-    favorites: {
-        color: '#c9c9c9',
-        textAlign: 'center',
-        fontSize: 13,
-        fontWeight: 'bold',
-        marginBottom: 17
     },
     mainContainer: {
         flex: 1
