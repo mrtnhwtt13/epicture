@@ -45,7 +45,7 @@ export default class ViewImages extends React.Component {
         }
   
         if (!loading) {
-            results = dataSource && dataSource.map(el => <ImageCard key={el._id} result={el} />)
+            results = dataSource && dataSource.map(el => <ImageCard key={el.id} result={el} />)
         }
   
         return (
