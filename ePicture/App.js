@@ -3,10 +3,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './app/Home';
 import Main from './app/Main';
-import ViewImages from './app/ViewImages';
+import Results from './app/Results';
 import Connect from './app/Connect';
 
+
 const Stack = createStackNavigator();
+
 
 export default class App extends React.Component {
     render () {
@@ -36,9 +38,9 @@ export default class App extends React.Component {
                         component={Main}
                     />
                     <Stack.Screen
-                        name="ViewImages"
+                        name="Results"
                         options={{ title: 'Results' }}
-                        component={ViewImages}
+                        component={Results}
                     />
                     <Stack.Screen
                         name="Connect"
@@ -50,5 +52,6 @@ export default class App extends React.Component {
         );
     }
 }
+
 
 //console.disableYellowBox = true;

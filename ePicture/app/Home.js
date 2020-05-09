@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
+
 export default class HomeScreen extends React.Component {
     render () {
         return (
@@ -20,6 +21,7 @@ export default class HomeScreen extends React.Component {
         );
     }
 }
+
 
 const style = StyleSheet.create({    
     buttonContainer: {
