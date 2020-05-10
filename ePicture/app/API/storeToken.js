@@ -1,1 +1,2 @@
 global.token = "";
+global.username = ""

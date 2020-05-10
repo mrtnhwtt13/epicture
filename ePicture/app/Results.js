@@ -6,7 +6,7 @@ import {
     TouchableHighlight,
     ScrollView
 } from 'react-native'
-import { searchByTag } from './API/apiRequests'
+import { searchByTag, getUserFavorites } from './API/apiRequests'
 import ImageCard from './ImageCard'
     
 

@@ -11,3 +11,27 @@ export function searchByTag (tag) {
             return response.json()
         })
 }
+
+export function getUserInfos (token) {
+    return fetch('https://api.imgur.com/3/account/me/settings', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+        .then((response) => {
+            return response.json()
+        })
+}
+
+export function getUserFavorites () {
+
+}
+
+export function addToFavorites () {
+
+}
+
+export function removeFromFavorites () {
+
+}
