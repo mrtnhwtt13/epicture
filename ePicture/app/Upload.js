@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Button, Image, View } from 'react-native';
+import { Button, Image, View, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import * as FileSystem from 'expo-file-system';
 import * as ImageManipulator from "expo-image-manipulator";
 
+var CLIENT_ID = 'e034a463e9043d0'
 
 export default class Upload extends React.Component {
   state = {
@@ -18,7 +18,7 @@ export default class Upload extends React.Component {
     const up_button = <Button title="Upload" onPress={this.uploadToImgur} />
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button title="Pick an image from camera roll" onPress={this._pickImage} />
+        <Button style={style.button} title="Pick an image from camera roll" onPress={this._pickImage} />
         {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
         {this.state.image ? up_button : <View></View>}
       </View>
@@ -27,6 +27,7 @@ export default class Upload extends React.Component {
 
   componentDidMount() {
     this.getPermissionAsync();
+    console.log(token)
   }
 
   getPermissionAsync = async () => {
@@ -58,19 +59,71 @@ export default class Upload extends React.Component {
   };
   
   uploadToImgur = () => {
-  fetch('https://api.imgur.com/3/upload', {
-      method: 'POST',
-      headers: {
-          'Authorization': 'Client-ID 1ea9d8b68e5bf9f'
-    },
-    body: JSON.stringify({
-        'image': this.state.data,
-        'type': 'base64'
-    })
-  })
-  .then(response => console.log(JSON.stringify(response)))
-  .catch(error => {
-      console.error(JSON.stringify(error));
-    });
+//   fetch('https://api.imgur.com/3/account/me/settings', {
+//       method: 'POST',
+//       headers: {
+//           'Authorization': 'Bearer ' + token,
+//           'Authorization': 'Client-Id '+ CLIENT_ID
+//     },
+//     body: {
+//         'image': this.state.data,
+//         'type': 'base64',
+//         'image': "https://i.imgur.com/3a0LlQC.jpg"
+//     }
+//   })
+//   .then(response => console.log(JSON.stringify(response)))
+//   .catch(error => {
+//       console.error(JSON.stringify(error));
+//     });
+// ================================ below works =========================================
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer "+ token);
+
+var formdata = new FormData();
+formdata.append("image", this.state.data);
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("https://api.imgur.com/3/image", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+// =====================================test for account==================
+// var myHeaders = new Headers();
+// myHeaders.append("Authorization", "Bearer "+ token);
+
+// var formdata = new FormData();
+
+// var requestOptions = {
+//   method: 'GET',
+//   headers: myHeaders,
+  
+//   redirect: 'follow'
+// };
+
+// fetch("https://api.imgur.com/3/account/me/settings", requestOptions)
+//   .then(response => response.text())
+//   .then(result => console.log(result))
+//   .catch(error => console.log('error', error));
+
   }
 }
+
+const style = StyleSheet.create({    
+    button: {
+        marginRight: 20,
+        marginTop: 15,
+        padding: 15,
+        paddingLeft: 30,
+        paddingRight: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#3b5998',
+        borderRadius: 4
+    },
+})

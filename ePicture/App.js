@@ -5,6 +5,7 @@ import HomeScreen from './app/Home';
 import Main from './app/Main';
 import Results from './app/Results';
 import Connect from './app/Connect';
+import Upload from './app/Upload'
 import './app/API/storeToken';
 
 
@@ -43,6 +44,11 @@ export default class App extends React.Component {
                         name="Results"
                         options={{ title: 'Results' }}
                         component={Results}
+                    />
+                     <Stack.Screen
+                        name="Upload"
+                        options={{ title: 'Upload an image' }}
+                        component={Upload}
                     />
                     <Stack.Screen
                         name="Connect"
