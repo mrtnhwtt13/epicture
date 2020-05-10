@@ -46,36 +46,19 @@ export default class Upload extends React.Component {
         allowsEditing: false,
         aspect: [4, 3],
         quality: 1,
-        noData: false
+        base64: true,
       });
       if (!result.cancelled) {
         this.setState({ image: result.uri });
       }
-      const response = await ImageManipulator.manipulateAsync(result.uri, [], { base64: true })
-      this.setState({data: JSON.stringify(response)})
+      this.setState({data: result.base64})
+      console.log(result)
     } catch (E) {
       console.log(E);
     }
   };
   
   uploadToImgur = () => {
-//   fetch('https://api.imgur.com/3/account/me/settings', {
-//       method: 'POST',
-//       headers: {
-//           'Authorization': 'Bearer ' + token,
-//           'Authorization': 'Client-Id '+ CLIENT_ID
-//     },
-//     body: {
-//         'image': this.state.data,
-//         'type': 'base64',
-//         'image': "https://i.imgur.com/3a0LlQC.jpg"
-//     }
-//   })
-//   .then(response => console.log(JSON.stringify(response)))
-//   .catch(error => {
-//       console.error(JSON.stringify(error));
-//     });
-// ================================ below works =========================================
 var myHeaders = new Headers();
 myHeaders.append("Authorization", "Bearer "+ token);
 
@@ -93,24 +76,6 @@ fetch("https://api.imgur.com/3/image", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
-// =====================================test for account==================
-// var myHeaders = new Headers();
-// myHeaders.append("Authorization", "Bearer "+ token);
-
-// var formdata = new FormData();
-
-// var requestOptions = {
-//   method: 'GET',
-//   headers: myHeaders,
-  
-//   redirect: 'follow'
-// };
-
-// fetch("https://api.imgur.com/3/account/me/settings", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
-
   }
 }
 
