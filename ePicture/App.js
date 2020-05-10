@@ -6,6 +6,8 @@ import Main from './app/Main';
 import Results from './app/Results';
 import Connect from './app/Connect';
 import Upload from './app/Upload'
+import Success from './app/Response/Success'
+import Failure from './app/Response/Failure'
 import './app/API/storeToken';
 
 
@@ -44,10 +46,20 @@ export default class App extends React.Component {
                         options={{ title: 'Results' }}
                         component={Results}
                     />
-                     <Stack.Screen
+                    <Stack.Screen
                         name="Upload"
                         options={{ title: 'Upload an image' }}
                         component={Upload}
+                    />
+                    <Stack.Screen
+                        name="Success"
+                        options={{ title: 'Success' }}
+                        component={Success}
+                    />
+                    <Stack.Screen
+                        name="Failure"
+                        options={{ title: 'Failure' }}
+                        component={Failure}
                     />
                     <Stack.Screen
                         name="Connect"

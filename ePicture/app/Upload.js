@@ -12,12 +12,12 @@ export default class Upload extends React.Component {
 
   render() {
     let { image } = this.state;
-    const up_button = <Button style={style.button} title="Upload" onPress={this.uploadToImgur} />
+    const upload_form = <Button style={style.button} title="Upload" onPress={this.uploadToImgur} />
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button style={style.button} title="Pick an image from camera roll" onPress={this._pickImage} />
         {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-        {this.state.image ? up_button : <View></View>}
+        {this.state.image ? upload_form : <View></View>}
       </View>
     );
   }
@@ -49,7 +49,7 @@ export default class Upload extends React.Component {
         this.setState({ image: result.uri });
       }
       this.setState({data: result.base64})
-      console.log(result)
+      //console.log(result)
     } catch (E) {
       console.log(E);
     }
@@ -70,6 +70,16 @@ var requestOptions = {
 };
 
 fetch("https://api.imgur.com/3/image", requestOptions)
+  .then( response => {
+    if(response.status === 200){
+      this.props.navigation.push('Success')
+      this.setState({image: null})
+      this.setState({data: ""})
+    } else {
+      this.props.navigation.push('Failure')
+    }
+  }
+  )
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
