@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Linking } from 'react-native';
 import HomeScreen from './app/Home';
 import Main from './app/Main';
 import Results from './app/Results';
 import Connect from './app/Connect';
-import './app/storeToken';
+import './app/API/storeToken';
 
 
 const Stack = createStackNavigator();

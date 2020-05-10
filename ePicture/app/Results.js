@@ -6,7 +6,7 @@ import {
     TouchableHighlight,
     ScrollView
 } from 'react-native'
-import API from './api'
+import { searchByTag } from './API/apiRequests'
 import ImageCard from './ImageCard'
     
 
@@ -21,7 +21,7 @@ export default class ViewImages extends React.Component {
     }
   
     componentDidMount () {
-        API.get(this.props.route.params.search)
+        searchByTag(this.props.route.params.search)
             .then((response) => {
                 this.setState({ dataSource: response.data.items, loading: false }) 
             }, (error) => {
