@@ -1,13 +1,11 @@
 import React from 'react';
 import { Linking } from 'react-native';
 import { WebView } from 'react-native-webview'
+import * as AuthSession from 'expo-auth-session';
 
 
-_handleUrl = url => {
-    this.setState({ url });
-    let { path, queryParams } = Linking.parse(url);
-    alert(`Linked to app with path: ${path} and data: ${JSON.stringify(queryParams)}`);
-};
+
+const url = AuthSession.getRedirectUrl('redirect');
 
 export default class Connect extends React.Component {
     render() {
