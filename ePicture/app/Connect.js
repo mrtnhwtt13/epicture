@@ -1,6 +1,5 @@
 import React from 'react'
-import {AsyncStorage, StyleSheet} from 'react-native'
-import { StackActions, NavigationActions } from 'react-navigation';
+import {StyleSheet} from 'react-native'
 import {WebView} from 'react-native-webview'
 
 const webviewRef = 'webview';
