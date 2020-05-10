@@ -13,6 +13,11 @@ export default class HomeScreen extends React.Component {
                     </TouchableHighlight>
                 </View>
                 <View style={style.buttonContainer}>
+                    <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.props.navigation.navigate('Upload')}>
+                        <Text style={style.buttonText}>Upload an image</Text>
+                    </TouchableHighlight>
+                </View>
+                <View style={style.buttonContainer}>
                     <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.props.navigation.navigate('Connect')}>
                         <Text style={style.buttonText}>Connect</Text>
                     </TouchableHighlight>
