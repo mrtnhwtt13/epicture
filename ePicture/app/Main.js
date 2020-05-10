@@ -28,6 +28,7 @@ export default class Main extends React.Component {
     }
 
     render () {   
+        console.log(token)
         return (
             <View style={style.container}>
                 <View style={style.headingContainer}>
