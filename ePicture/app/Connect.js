@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet} from 'react-native'
 import {WebView} from 'react-native-webview'
-import {getUserInfos} from './API/apiRequests'
+
 
 const webviewRef = 'webview';
 const CLIENT_ID = 'e034a463e9043d0';
@@ -23,15 +23,7 @@ export default class Connect extends React.Component {
         if (url.search("access_token=") > 0) { 
             let array = url.split("=");
             token = array[2].split('&')[0];
-            console.log(token)
-            getUserInfos(token)
-                .then((response) => {
-                    console.log(response)
-                    username = response.data.account_url 
-                    return (true);
-                }, (error) => {
-                    console.log('error: ', error)
-                    })            
+            return (true);     
         }        
         return (false);
     }

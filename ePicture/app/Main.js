@@ -19,6 +19,18 @@ export default class Main extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    componentDidMount () {
+        getUserInfos(token)
+            .then((response) => {
+                console.log(response)
+                username = response.data.account_url 
+                console.log("token : " + token)
+                console.log("username : " + username)
+                }, (error) => {
+                    console.log('error: ', error)
+                    })       
+    }
         
     _updateInput (input) {
         this.setState({ input });
