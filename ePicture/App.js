@@ -6,6 +6,7 @@ import HomeScreen from './app/Home';
 import Main from './app/Main';
 import Results from './app/Results';
 import Connect from './app/Connect';
+import './app/storeToken';
 
 
 const Stack = createStackNavigator();
@@ -13,6 +14,7 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
     render () {
+        console.log(token)
         return (
             <NavigationContainer>
                 <Stack.Navigator

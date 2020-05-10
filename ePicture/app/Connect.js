@@ -4,20 +4,15 @@ import { StackActions, NavigationActions } from 'react-navigation';
 import {WebView} from 'react-native-webview'
 
 const webviewRef = 'webview';
-const CLIENT_ID = 'bbc4e4148bb5e23';
+const CLIENT_ID = 'e034a463e9043d0';
 
 
-class Connect extends React.Component {    
+export default class Connect extends React.Component {    
 
     constructor(props) {
         super(props);
     }
-
-    _resetAction = StackActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({ routeName: 'Main' })],
-    });
-
+    
     _changeNavigationState = async (webView) => {
        if (this._splitUrl(webView.url) === true) {           
         this.props.navigation.navigate('Main');
@@ -27,9 +22,9 @@ class Connect extends React.Component {
     _splitUrl(url) {
         if (url.search("access_token=") > 0) { 
             let array = url.split("=");
-                console.log(array[2].split('&')[0]);          
+            token = array[2].split('&')[0];          
             return (true);
-        }
+        }        
         return (false);
     }
 
@@ -39,7 +34,7 @@ class Connect extends React.Component {
         javaScriptEnabled: true,
         onNavigationStateChange: this._changeNavigationState.bind(this),
         source: {
-            uri: 'https://api.imgur.com/oauth2/authorize?client_id=' + "e034a463e9043d0" + '&response_type=token&state=APPLICATION_STATE',
+            uri: 'https://api.imgur.com/oauth2/authorize?client_id=' + CLIENT_ID + '&response_type=token&state=APPLICATION_STATE',
         }
     };
 
@@ -60,5 +55,3 @@ const styles = StyleSheet.create({
         flex: 1
     }
 });
-
-export default Connect
