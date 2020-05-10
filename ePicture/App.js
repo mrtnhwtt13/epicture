@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Linking } from 'react-native';
 import HomeScreen from './app/Home';
 import Main from './app/Main';
 import Results from './app/Results';
@@ -51,7 +52,7 @@ export default class App extends React.Component {
             </NavigationContainer>
         );
     }
-}
+} 
 
 
 //console.disableYellowBox = true;
