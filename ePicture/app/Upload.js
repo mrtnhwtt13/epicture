@@ -3,9 +3,6 @@ import { Button, Image, View, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import * as ImageManipulator from "expo-image-manipulator";
-
-var CLIENT_ID = 'e034a463e9043d0'
 
 export default class Upload extends React.Component {
   state = {
@@ -15,7 +12,7 @@ export default class Upload extends React.Component {
 
   render() {
     let { image } = this.state;
-    const up_button = <Button title="Upload" onPress={this.uploadToImgur} />
+    const up_button = <Button style={style.button} title="Upload" onPress={this.uploadToImgur} />
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button style={style.button} title="Pick an image from camera roll" onPress={this._pickImage} />
