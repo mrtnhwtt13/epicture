@@ -13,6 +13,12 @@ export default class Connect extends React.Component {
         super(props);
     }    
     
+    // componentDidMount() {
+    //     if (token !== ""){
+    //         this.props.navigation.navigate('Main');
+    //     }
+    // }
+
     _changeNavigationState = async (webView) => {
        if (this._splitUrl(webView.url) === true) {           
         this.props.navigation.navigate('Main');
@@ -39,6 +45,9 @@ export default class Connect extends React.Component {
     };
 
     render() {
+        if (token !== ""){
+            this.props.navigation.navigate('Main');
+        }
         return (
             <WebView  {...this.webviewProps}/>
         )

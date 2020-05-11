@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Image, View, StyleSheet, TextInput } from 'react-native'
+import { Text, Image, View, StyleSheet, TextInput, TouchableHighlight } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import Constants from 'expo-constants'
 import * as Permissions from 'expo-permissions'
@@ -109,20 +109,24 @@ export default class Upload extends React.Component {
                     value={this.state.desc} 
                     onChangeText={(text) => this.setState({desc: text})}
                 />
-                <Button
-                    style={style.button}
-                    title="Upload"
+                <TouchableHighlight
+                    underlayColor='#3f62aa'
+                    style={style.buttonLink}
                     onPress={this.uploadToImgur}
-                />
+                >
+                <Text style={style.buttonText} >Upload</Text>
+                </TouchableHighlight>
             </View>
         )
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Button
-                    style={[style.button]}
-                    title="Pick an image from camera roll"
-                    onPress={this._pickImage}
-                />
+                <TouchableHighlight
+                underlayColor='#3f62aa'
+                style={style.buttonLink}
+                onPress={this._pickImage}
+                >
+                    <Text style={style.buttonText}>Pick an image from the camera roll</Text>
+                </TouchableHighlight>
                 {image && (
                     <Image source={{ uri: image }} style={{ width: 200, height: 200, margin: 10, marginTop: 20 }} />
                 )}
@@ -131,7 +135,7 @@ export default class Upload extends React.Component {
         )
     }  
 }
-  
+
 
 const style = StyleSheet.create({
     input: {
@@ -144,17 +148,23 @@ const style = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        width: "100%"
     },
-    button: {
-        marginRight: 20,
+    buttonLink: {
+        // marginRight: 20,
         marginTop: 15,
-        padding: 15,
-        paddingLeft: 30,
-        paddingRight: 30,
+        padding: 20,
+        width: "90%",
+        // paddingLeft: 30,
+        // paddingRight: 30,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#3b5998',
-        borderRadius: 4
-    }
+        backgroundColor: "#1e3f83",
+        borderRadius: 30
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        textTransform: 'uppercase'
+    },
 })
-  

@@ -53,19 +53,19 @@ export default class Favorites extends React.Component {
             <View style={style.container}>
                 <View style={style.headingContainer}>
                     <Text style={style.heading}>My favorites</Text>
+                <TouchableHighlight underlayColor='transparent' onPress={this._closeModal.bind(this)} style={style.closeButton}>
+                    <Text style={style.closeButtonText}>CLOSE</Text>
+                </TouchableHighlight>
                 </View>
                 <ScrollView style={style.mainContainer}>                    
-                    <View style={style.resultsContainer}>
+                    {/* <View style={style.resultsContainer}>
                         <Text style={style.results}>RESULTS</Text>                        
-                    </View>
-                    <View style={{flex: 1}}>
-                        <TouchableHighlight underlayColor='transparent' onPress={this._closeModal.bind(this)} style={style.closeButton}>
-                            <Text style={style.closeButtonText}>CLOSE</Text>
-                        </TouchableHighlight>
+                    </View> */}
+                    {/* <View style={{flex: 1}}> */}
                         <View style={{flex: 1}}>
                             {results}
                         </View>
-                    </View>             
+                    {/* </View>              */}
                 </ScrollView>
             </View>       
         )
@@ -86,13 +86,14 @@ const style = StyleSheet.create({
     },
     heading: {
         fontSize: 20,
-        marginTop: 20
+        marginTop: 50
     },
     mainContainer: {
         flex: 1
     },
     closeButton: {
-        height: 100,
+        height: 50,
+        marginBottom: 30,
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomColor: '#e6e6e6',

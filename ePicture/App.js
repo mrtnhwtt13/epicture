@@ -24,7 +24,7 @@ export default class App extends React.Component {
                     initialRouteName="Home"
                     screenOptions={{
                         headerStyle: {
-                            backgroundColor: '#3c3c46',
+                            backgroundColor: '#1e3f83',
                         },
                         headerTintColor: '#fff',
                         headerTitleStyle: {
@@ -35,12 +35,12 @@ export default class App extends React.Component {
                 >
                     <Stack.Screen
                         name="Home"
-                        options={{ title: 'Home' }}
+                        options={{headerShown: false}}
                         component={HomeScreen}
                     />
                     <Stack.Screen
                         name="Main"
-                        options={{ title: 'Search' }}
+                        options={{headerShown: false}}
                         component={Main}
                     />
                     <Stack.Screen
@@ -50,12 +50,12 @@ export default class App extends React.Component {
                     />
                     <Stack.Screen
                         name="Favorites"
-                        options={{ title: 'My favorites' }}
+                        options={{ title: 'My Favorites' }}
                         component={Favorites}
                     />
                     <Stack.Screen
                         name="MyGallery"
-                        options={{ title: 'My gallery' }}
+                        options={{ title: 'My Gallery' }}
                         component={MyGallery}
                     />
                     <Stack.Screen
@@ -75,7 +75,7 @@ export default class App extends React.Component {
                     />
                     <Stack.Screen
                         name="Connect"
-                        options={{ title: 'Connect' }}
+                        options={{headerShown: false}}
                         component={Connect}
                     />
                 </Stack.Navigator>

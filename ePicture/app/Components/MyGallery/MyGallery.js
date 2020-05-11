@@ -59,20 +59,15 @@ export default class MyGallery extends React.Component {
         return (
             <View style={style.container}>
                 <View style={style.headingContainer}>
-                    <Text style={style.heading}>My gallery</Text>
-                </View>
-                <ScrollView style={style.mainContainer}>                    
-                    <View style={style.resultsContainer}>
-                        <Text style={style.results}>RESULTS</Text>                        
-                    </View>
-                    <View style={{flex: 1}}>
-                        <TouchableHighlight underlayColor='transparent' onPress={this._closeModal.bind(this)} style={style.closeButton}>
+                    <TouchableHighlight underlayColor='transparent' onPress={this._closeModal.bind(this)} style={style.closeButton}>
                             <Text style={style.closeButtonText}>CLOSE</Text>
                         </TouchableHighlight>
+                </View>
+                <ScrollView style={style.mainContainer}>                    
                         <View style={{flex: 1}}>
                             {results}
                         </View>
-                    </View>             
+                    {/* </View>              */}
                 </ScrollView>
             </View>       
         )
@@ -87,19 +82,21 @@ const style = StyleSheet.create({
     headingContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: 100,
+        height: 50,
         borderBottomWidth: 1,
         borderBottomColor: '#ededed'
     },
     heading: {
         fontSize: 20,
-        marginTop: 20
+        marginTop: 50
     },
     mainContainer: {
         flex: 1
     },
     closeButton: {
-        height: 100,
+        height: 50,
+        marginTop: 30,
+        marginBottom: 30,
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomColor: '#e6e6e6',
