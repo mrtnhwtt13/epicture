@@ -23,10 +23,7 @@ export default class Main extends React.Component {
     componentDidMount () {
         getUserInfos(token)
             .then((response) => {
-                console.log(response)
                 username = response.data.account_url 
-                console.log("token : " + token)
-                console.log("username : " + username)
                 }, (error) => {
                     console.log('error: ', error)
                     })       
@@ -55,10 +52,25 @@ export default class Main extends React.Component {
                         onSubmitEditing={() => this.handleSubmit()}
                     />
                     <View style={style.buttonContainer}>
-                        <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.handleSubmit()}>
+                        <TouchableHighlight underlayColor='#8246da' style={[ style.buttonSearch ]} onPress={() => this.handleSubmit()}>
                             <Text style={style.buttonText}>Search</Text>
                         </TouchableHighlight>
-                    </View>                            
+                    </View>
+                    <View style={style.buttonContainer}>
+                        <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('Favorites')}>
+                            <Text style={style.buttonText}>My favorites</Text>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={style.buttonContainer}>
+                        <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('Gallery')}>
+                            <Text style={style.buttonText}>My gallery</Text>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={style.buttonContainer}>
+                        <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('Upload')}>
+                            <Text style={style.buttonText}>Upload an image</Text>
+                        </TouchableHighlight>
+                    </View>                        
                 </ScrollView>
             </View>
         );
@@ -96,7 +108,7 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center'
     },
-    button: {
+    buttonSearch: {
         marginRight: 20,
         marginTop: 15,
         padding: 15,
@@ -104,7 +116,18 @@ const style = StyleSheet.create({
         paddingRight: 30,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#3b5998',
+        backgroundColor: "#593193",
+        borderRadius: 4
+    },
+    buttonLink: {
+        marginRight: 20,
+        marginTop: 15,
+        padding: 15,
+        paddingLeft: 30,
+        paddingRight: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: "#1e3f83",
         borderRadius: 4
     },
     buttonText: {
