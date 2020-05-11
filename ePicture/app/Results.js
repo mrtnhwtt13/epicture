@@ -16,17 +16,25 @@ export default class ViewImages extends React.Component {
         super(props)
         this.state = {
             dataSource: null,
+            favorites: [],
             loading: true
         }
     }
   
     componentDidMount () {
-        searchByTag(this.props.route.params.search)
+        getUserFavorites()
             .then((response) => {
-                this.setState({ dataSource: response.data.items, loading: false }) 
+                this.setState({ favorites: response.data });
+                searchByTag(this.props.route.params.search)
+                    .then((response) => {
+                        this.setState({ dataSource: response.data.items, loading: false }) 
+                    }, (error) => {
+                        console.log('error: ', error)
+                    })        
             }, (error) => {
                     console.log('error: ', error)
-                })
+            })
+        
     }
 
     _closeModal () {
@@ -34,7 +42,7 @@ export default class ViewImages extends React.Component {
     }    
   
     render () {
-        let { loading, dataSource } = this.state;
+        let { loading, dataSource, favorites } = this.state;
         let results = null;
   
         if (loading) {
@@ -45,7 +53,7 @@ export default class ViewImages extends React.Component {
         }
   
         if (!loading) {
-            results = dataSource && dataSource.map(el => <ImageCard key={el.id} result={el} />)
+            results = dataSource && dataSource.map(el => <ImageCard key={el.id} result={el} userFavorites={favorites} />)
         }
   
         return (

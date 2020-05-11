@@ -6,7 +6,7 @@ import {
     Dimensions
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-import { addToFavorites, removeFromFavorites } from './API/apiRequests'
+import { addToFavorites } from './API/apiRequests'
   
 
 let windowWidth = Dimensions.get('window').width
@@ -22,12 +22,30 @@ export default class ImageCard extends React.Component {
         this.handleAddToFav = this.handleAddToFav.bind(this);
     }
 
+    componentDidMount () {
+        let imageId = null;
+        let isFavorite = false;
+        if (this.props.result.images) {
+            imageId = this.props.result.images[0].id
+        }
+        this.props.userFavorites.map(function(el, i) {
+            if (el.id === imageId) {
+                isFavorite = true;
+            }
+        })
+        if (isFavorite === true) {
+            this.setState({ favorite: true })
+        }
+    }
+
     handleAddToFav() {
         if (this.state.favorite === false) {
             this.setState({ favorite: true });
+            addToFavorites(this.props.result.images[0].id)
         }
         else {
             this.setState({ favorite: false });
+            addToFavorites(this.props.result.images[0].id)
         }
     }   
   
