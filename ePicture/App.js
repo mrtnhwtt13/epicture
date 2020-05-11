@@ -5,6 +5,7 @@ import HomeScreen from './app/Components/Home';
 import Main from './app/Components/Main/Main';
 import Results from './app/Components/Search/Results';
 import Connect from './app/Components/Auth/Connect';
+import Favorites from './app/Components/Favorites/Favorites'
 import Upload from './app/Components/Upload/Upload'
 import Success from './app/Components/Response/Success'
 import Failure from './app/Components/Response/Failure'
@@ -45,6 +46,11 @@ export default class App extends React.Component {
                         name="Results"
                         options={{ title: 'Results' }}
                         component={Results}
+                    />
+                    <Stack.Screen
+                        name="Favorites"
+                        options={{ title: 'My favorites' }}
+                        component={Favorites}
                     />
                     <Stack.Screen
                         name="Upload"
