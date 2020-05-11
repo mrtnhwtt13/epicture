@@ -15,20 +15,16 @@ export function searchByTag (tag) {
 export function UserImage() {
     var myHeaders = new Headers();
 myHeaders.append("Authorization", "Bearer "+ token);
-
-var formdata = new FormData();
-
 var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  body: formdata,
-  redirect: 'follow'
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
 };
-
 fetch("https://api.imgur.com/3/account/me/images", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+    .then(response => {
+        return response.json()
+    })
+    .catch(error => console.log('error', error));
 }
 
 export function getUserInfos (token) {

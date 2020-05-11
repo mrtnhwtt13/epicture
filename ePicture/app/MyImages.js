@@ -21,7 +21,9 @@ export default class MyImages extends React.Component {
     componentDidMount () {
         UserImage()
             .then((response) => {
-                this.setState({ dataSource: response.data.items, loading: false }) 
+                console.log(response);
+                this.setState({ dataSource: response.data, loading: false });
+                console.log(this.state.dataSource) 
             }, (error) => {
                     console.log('error: ', error)
                 })
@@ -29,35 +31,27 @@ export default class MyImages extends React.Component {
 
 
     render () {
-        let { loading, dataSource } = this.state;
-        let results = null;
+        // let { loading, dataSource } = this.state;
+        // let results = null;
 
-        if (loading) {
-            results = (
-                <View style={style.loadingContainer}>
-                    <Text style={style.loading}>Loading images...</Text>
-                </View>)
-        }
+        // if (loading) {
+        //     results = (
+        //         <View style={style.loadingContainer}>
+        //             <Text style={style.loading}>Loading images...</Text>
+        //         </View>)
+        // }
 
-        if (!loading) {
-            results = dataSource && dataSource.map(el => <MyImageCard key={el.id} result={el} />)
-        }
+        // if (!loading) {
+        //     results = dataSource && dataSource.map(el => <MyImageCard key={el.id} result={el} />)
+        // }
 
         return (
             <View style={style.container}>
-                <View style={style.headingContainer}>
-                    <Text style={style.heading}>Search for { this.props.route.params.search }</Text>
-                </View>
                 <ScrollView style={style.mainContainer}>                    
-                    <View style={style.resultsContainer}>
-                        <Text style={style.results}>RESULTS</Text>                        
-                    </View>
                     <View style={{flex: 1}}>
-                        <TouchableHighlight underlayColor='transparent' onPress={this._closeModal.bind(this)} style={style.closeButton}>
-                            <Text style={style.closeButtonText}>CLOSE</Text>
-                        </TouchableHighlight>
+                        
                         <View style={{flex: 1}}>
-                            {results}
+                            {/* {results} */}
                         </View>
                     </View>             
                 </ScrollView>

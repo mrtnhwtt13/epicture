@@ -8,6 +8,8 @@ import Connect from './app/Connect';
 import Upload from './app/Upload'
 import Success from './app/Response/Success'
 import Failure from './app/Response/Failure'
+import MyImages from './app/MyImages'
+import MyImageCard from './app/MyImageCard'
 import './app/API/storeToken';
 
 
@@ -65,6 +67,16 @@ export default class App extends React.Component {
                         name="Connect"
                         options={{ title: 'Connect' }}
                         component={Connect}
+                    />
+                    <Stack.Screen
+                        name="MyImages"
+                        options={{ title: 'MyImages' }}
+                        component={MyImages}
+                    />
+                    <Stack.Screen
+                        name="MyImageCard"
+                        options={{ title: 'MyImageCard' }}
+                        component={MyImageCard}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
