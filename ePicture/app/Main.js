@@ -44,18 +44,21 @@ export default class Main extends React.Component {
                     <Text style={style.heading}>Search images</Text>
                 </View>
                 <ScrollView style={style.mainContainer}>
-                    <TextInput
-                        value={this.state.input}
-                        onChangeText={(text) => this._updateInput(text)}
-                        style={style.input}
-                        placeholder='What Do You Like?'
-                        onSubmitEditing={() => this.handleSubmit()}
-                    />
-                    <View style={style.buttonContainer}>
-                        <TouchableHighlight underlayColor='#8246da' style={[ style.buttonSearch ]} onPress={() => this.handleSubmit()}>
-                            <Text style={style.buttonText}>Search</Text>
-                        </TouchableHighlight>
+                    <View style={style.inputContainer}>
+                        <TextInput
+                            value={this.state.input}
+                            onChangeText={(text) => this._updateInput(text)}
+                            style={style.input}
+                            placeholder='What Do You Like?'
+                            onSubmitEditing={() => this.handleSubmit()}
+                            />
+                        <View style={style.buttonContainer}>
+                            <TouchableHighlight underlayColor='#8246da' style={[ style.buttonSearch ]} onPress={() => this.handleSubmit()}>
+                                <Text style={style.buttonText}>Search</Text>
+                            </TouchableHighlight>
+                        </View>
                     </View>
+
                     <View style={style.buttonContainer}>
                         <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('Favorites')}>
                             <Text style={style.buttonText}>My favorites</Text>
@@ -102,7 +105,8 @@ const style = StyleSheet.create({
         borderRadius: 4,
         padding: 10,
         fontSize: 18,
-        color: '#666666'
+        color: '#666666',
+        width: '66%'
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -112,11 +116,11 @@ const style = StyleSheet.create({
         marginRight: 20,
         marginTop: 15,
         padding: 15,
-        paddingLeft: 30,
-        paddingRight: 30,
+        // paddingLeft: 30,
+        // paddingRight: 30,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: "#593193",
+        backgroundColor: "#a3a3c2",
         borderRadius: 4
     },
     buttonLink: {
@@ -136,5 +140,10 @@ const style = StyleSheet.create({
     },
     mainContainer: {
         flex: 1
-    }
+    },
+    inputContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }
 })
