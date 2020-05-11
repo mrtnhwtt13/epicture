@@ -36,6 +36,18 @@ export function getUserFavorites () {
         })
 }
 
+export function getUserGallery () {
+    return fetch('https://api.imgur.com/3/account/me/images', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+        .then((response) => {
+            return response.json()
+        })
+}
+
 export function addToFavorites (imageId) {
     return fetch('https://api.imgur.com/3/image/' + imageId + '/favorite', {
         method: 'POST',

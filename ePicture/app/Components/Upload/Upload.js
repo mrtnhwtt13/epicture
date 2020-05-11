@@ -132,6 +132,7 @@ export default class Upload extends React.Component {
     }  
 }
   
+
 const style = StyleSheet.create({
     input: {
         width: '80%',

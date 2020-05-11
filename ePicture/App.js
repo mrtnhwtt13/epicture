@@ -6,6 +6,7 @@ import Main from './app/Components/Main/Main';
 import Results from './app/Components/Search/Results';
 import Connect from './app/Components/Auth/Connect';
 import Favorites from './app/Components/Favorites/Favorites'
+import MyGallery from './app/Components/MyGallery/MyGallery'
 import Upload from './app/Components/Upload/Upload'
 import Success from './app/Components/Response/Success'
 import Failure from './app/Components/Response/Failure'
@@ -51,6 +52,11 @@ export default class App extends React.Component {
                         name="Favorites"
                         options={{ title: 'My favorites' }}
                         component={Favorites}
+                    />
+                    <Stack.Screen
+                        name="MyGallery"
+                        options={{ title: 'My gallery' }}
+                        component={MyGallery}
                     />
                     <Stack.Screen
                         name="Upload"

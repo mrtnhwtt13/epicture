@@ -11,7 +11,7 @@ export default class Connect extends React.Component {
 
     constructor(props) {
         super(props);
-    }
+    }    
     
     _changeNavigationState = async (webView) => {
        if (this._splitUrl(webView.url) === true) {           
