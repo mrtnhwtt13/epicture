@@ -6,7 +6,7 @@ import {
     Dimensions
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-import { addToFavorites } from './API/apiRequests'
+import { addToFavorites } from '../../API/apiRequests'
   
 
 let windowWidth = Dimensions.get('window').width

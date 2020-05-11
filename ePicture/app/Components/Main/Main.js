@@ -7,7 +7,7 @@ import {
     TouchableHighlight,
     ScrollView
 } from 'react-native';
-import {getUserInfos} from './API/apiRequests'
+import {getUserInfos} from '../../API/apiRequests'
 
 
 export default class Main extends React.Component {

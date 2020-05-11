@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './app/Home';
-import Main from './app/Main';
-import Results from './app/Results';
-import Connect from './app/Connect';
-import Upload from './app/Upload'
-import Success from './app/Response/Success'
-import Failure from './app/Response/Failure'
+import HomeScreen from './app/Components/Home';
+import Main from './app/Components/Main/Main';
+import Results from './app/Components/Search/Results';
+import Connect from './app/Components/Auth/Connect';
+import Upload from './app/Components/Upload/Upload'
+import Success from './app/Components/Response/Success'
+import Failure from './app/Components/Response/Failure'
 import './app/API/storeToken';
 
 
