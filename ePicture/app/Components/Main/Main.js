@@ -7,7 +7,7 @@ import {
     TouchableHighlight,
     ScrollView
 } from 'react-native';
-import {getUserInfos} from './API/apiRequests'
+import {getUserInfos} from '../../API/apiRequests'
 
 
 export default class Main extends React.Component {
@@ -67,11 +67,6 @@ export default class Main extends React.Component {
                     <View style={style.buttonContainer}>
                         <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('MyImages')}>
                             <Text style={style.buttonText}>My Images</Text>
-                        </TouchableHighlight>
-                    </View>
-                    <View style={style.buttonContainer}>
-                        <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('Gallery')}>
-                            <Text style={style.buttonText}>My gallery</Text>
                         </TouchableHighlight>
                     </View>
                     <View style={style.buttonContainer}>

@@ -40,13 +40,25 @@ export function getUserInfos (token) {
 }
 
 export function getUserFavorites () {
-
+    return fetch('https://api.imgur.com/3/account/' + username + '/favorites/', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+        .then((response) => {
+            return response.json()
+        })
 }
 
-export function addToFavorites () {
-
-}
-
-export function removeFromFavorites () {
-
+export function addToFavorites (imageId) {
+    return fetch('https://api.imgur.com/3/image/' + imageId + '/favorite', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+        .then((response) => {
+            return response.json()
+        })
 }
