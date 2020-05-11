@@ -6,7 +6,7 @@ export default class HomeScreen extends React.Component {
     render () {
         return (
             <View style={{ flex: 1, alignItems: 'center', marginTop: "50%" }}>
-                <Text style={style.text} >Please allow ePicture to use your IMGUR account</Text>                
+                <Text style={style.text} >Connect through IMGUR</Text>                
                 <View style={style.buttonContainer}>
                     <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.props.navigation.navigate('Connect')}>
                         <Text style={style.buttonText}>Authorize</Text>
