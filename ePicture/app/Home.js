@@ -6,17 +6,7 @@ export default class HomeScreen extends React.Component {
     render () {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>Welcome to Epicture !</Text>
-                <View style={style.buttonContainer}>
-                    <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.props.navigation.navigate('Main')}>
-                        <Text style={style.buttonText}>Start</Text>
-                    </TouchableHighlight>
-                </View>
-                <View style={style.buttonContainer}>
-                    <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.props.navigation.navigate('Upload')}>
-                        <Text style={style.buttonText}>Upload an image</Text>
-                    </TouchableHighlight>
-                </View>
+                <Text>Welcome to Epicture !</Text>                
                 <View style={style.buttonContainer}>
                     <TouchableHighlight underlayColor='#3f62aa' style={[ style.button ]} onPress={() => this.props.navigation.navigate('Connect')}>
                         <Text style={style.buttonText}>Connect</Text>
