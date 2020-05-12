@@ -59,3 +59,19 @@ export function addToFavorites (imageId) {
             return response.json()
         })
 }
+export function uploadImage (formdata) {
+    var myHeaders = new Headers();
+    myHeaders.append('Authorization', 'Bearer ' + token);
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow',
+    };
+
+    return fetch('https://api.imgur.com/3/image', requestOptions)
+        .then((response) => {
+            return response.json()
+        })
+}

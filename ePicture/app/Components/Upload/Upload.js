@@ -3,6 +3,7 @@ import { Text, Image, View, StyleSheet, TextInput, TouchableHighlight } from 're
 import * as ImagePicker from 'expo-image-picker'
 import Constants from 'expo-constants'
 import * as Permissions from 'expo-permissions'
+import { uploadImage } from '../../API/apiRequests';
 
 
 export default class Upload extends React.Component {
@@ -56,24 +57,14 @@ export default class Upload extends React.Component {
     uploadToImgur = () => {
         console.log(this.state.title)
         console.log(this.state.desc)
-  
-        var myHeaders = new Headers()
-        myHeaders.append('Authorization', 'Bearer ' + token)
-    
+     
         var formdata = new FormData()
         formdata.append('image', this.state.data)
         formdata.append('title', this.state.title)
         formdata.append('name', this.state.title)
         formdata.append('description', this.state.desc)
     
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: formdata,
-            redirect: 'follow',
-        }
-  
-        fetch('https://api.imgur.com/3/image', requestOptions)
+        uploadImage(formdata)
             .then((response) => {
                 if (response.status === 200) {
                     this.props.navigation.push('Success')
