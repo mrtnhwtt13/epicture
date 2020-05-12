@@ -1,8 +1,8 @@
 {
   "expo": {
+    "scheme": "mycoolredirect",
     "name": "ePicture",
     "slug": "ePicture",
-    "scheme": "epicture",
     "platforms": [
       "ios",
       "android",
