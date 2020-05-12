@@ -77,8 +77,8 @@ export function uploadImage (formdata) {
         })
 }
 
-export function getHotPage () {
-    return fetch('https://api.imgur.com/3/gallery/hot/viral/day/1?showViral=true&mature=false&album_previews=false', {
+export function getHotPage (sort) {
+    return fetch('https://api.imgur.com/3/gallery/hot/' + sort + '/day/1?showViral=true&mature=false&album_previews=false', {
         headers: {
             'Authorization': 'Client-ID ' + CLIENT_ID
         }

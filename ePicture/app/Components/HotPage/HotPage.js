@@ -23,9 +23,8 @@ export default class HotPage extends React.Component {
     getUserFavorites().then(
       (response) => {
         this.setState({ favorites: response.data })
-        getHotPage().then(
+        getHotPage(this.props.route.params.sort).then(
           (response) => {
-            console.log(response)
             this.setState({ dataSource: response.data, loading: false })
           },
           (error) => {

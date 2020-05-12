@@ -62,7 +62,7 @@ export default class Main extends React.Component {
                     <View style={style.buttonGroupContainer}>
 
                         <View style={style.buttonContainer}>
-                            <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('HotPage')}>
+                            <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('HotPage', { sort: "viral"})}>
                                 <Text style={style.buttonText}>What's new ?</Text>
                             </TouchableHighlight>
                         </View>
