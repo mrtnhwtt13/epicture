@@ -59,6 +59,7 @@ export function addToFavorites (imageId) {
             return response.json()
         })
 }
+
 export function uploadImage (formdata) {
     var myHeaders = new Headers();
     myHeaders.append('Authorization', 'Bearer ' + token);
@@ -71,6 +72,17 @@ export function uploadImage (formdata) {
     };
 
     return fetch('https://api.imgur.com/3/image', requestOptions)
+        .then((response) => {
+            return response.json()
+        })
+}
+
+export function getHotPage () {
+    return fetch('https://api.imgur.com/3/gallery/hot/viral/day/1?showViral=true&mature=false&album_previews=false', {
+        headers: {
+            'Authorization': 'Client-ID ' + CLIENT_ID
+        }
+    })
         .then((response) => {
             return response.json()
         })

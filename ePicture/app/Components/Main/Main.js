@@ -62,6 +62,11 @@ export default class Main extends React.Component {
                     <View style={style.buttonGroupContainer}>
 
                         <View style={style.buttonContainer}>
+                            <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('HotPage')}>
+                                <Text style={style.buttonText}>What's new ?</Text>
+                            </TouchableHighlight>
+                        </View>
+                        <View style={style.buttonContainer}>
                             <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('MyGallery')}>
                                 <Text style={style.buttonText}>My gallery</Text>
                             </TouchableHighlight>

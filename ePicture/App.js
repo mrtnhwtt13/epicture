@@ -6,6 +6,7 @@ import Main from './app/Components/Main/Main';
 import Results from './app/Components/Search/Results';
 import Connect from './app/Components/Auth/Connect';
 import Favorites from './app/Components/Favorites/Favorites'
+import HotPage from './app/Components/HotPage/HotPage'
 import MyGallery from './app/Components/MyGallery/MyGallery'
 import Upload from './app/Components/Upload/Upload'
 import Success from './app/Components/Response/Success'
@@ -52,6 +53,11 @@ export default class App extends React.Component {
                         name="Results"
                         options={{ title: 'Results' }}
                         component={Results}
+                    />
+                    <Stack.Screen
+                        name="HotPage"
+                        options={{ title: 'Hot Page' }}
+                        component={HotPage}
                     />
                     <Stack.Screen
                         name="Favorites"
