@@ -1,5 +1,9 @@
 {
   "expo": {
+    "android": {
+      "package": "com.yourcompany.yourappname",
+      "versionCode": 1
+    },
     "scheme": "mycoolredirect",
     "name": "ePicture",
     "slug": "ePicture",
