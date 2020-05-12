@@ -65,16 +65,25 @@ export default class HotPage extends React.Component {
     return (
       <View style={style.container}>
         <View style={style.headingContainer}>
-          <Text style={style.heading}>
-            What's new today ?
-          </Text>
-          <TouchableHighlight
+          <View style={[style.buttonContainer]}>
+
+          <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.replace('HotPage', { sort: "viral"})}>
+            <Text style={style.buttonText}>Viral</Text>
+          </TouchableHighlight>
+          <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.replace('HotPage', { sort: "top"})}>
+            <Text style={style.buttonText}>Top</Text>
+          </TouchableHighlight>
+          <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.replace('HotPage', { sort: "time"})}>
+            <Text style={style.buttonText}>Newest</Text>
+          </TouchableHighlight>
+          {/* <TouchableHighlight
             underlayColor="transparent"
             onPress={this._closeModal.bind(this)}
             style={style.closeButton}
           >
-            <Text style={style.closeButtonText}>CLOSE</Text>
-          </TouchableHighlight>
+            <Text style={style.closeButtonText}>X</Text>
+          </TouchableHighlight> */}
+        </View>
         </View>
         <ScrollView style={style.mainContainer}>
           <View style={{ flex: 1 }}>{results}</View>
@@ -89,11 +98,18 @@ const style = StyleSheet.create({
     flex: 1,
   },
   headingContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 70,
+    height: 80,
     borderBottomWidth: 1,
     borderBottomColor: '#ededed',
+    alignItems: 'center',
+  },
+  buttonContainer:{
+    marginTop: 10,
+    width: "70%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+
   },
   heading: {
     fontSize: 20,
@@ -103,7 +119,7 @@ const style = StyleSheet.create({
     flex: 1,
   },
   closeButton: {
-    height: 20,
+    height: 35,
     marginBottom: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -136,4 +152,18 @@ const style = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#ededed',
   },
+  buttonLink: {
+    marginTop: 15,
+    marginBottom: 15,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: "#1e3f83",
+    borderRadius: 30,
+},
+buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textTransform: 'uppercase'
+},
 })

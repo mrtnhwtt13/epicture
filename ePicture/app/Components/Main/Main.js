@@ -63,12 +63,7 @@ export default class Main extends React.Component {
 
                         <View style={style.buttonContainer}>
                             <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('HotPage', { sort: "viral"})}>
-                                <Text style={style.buttonText}>What's new ?</Text>
-                            </TouchableHighlight>
-                        </View>
-                        <View style={style.buttonContainer}>
-                            <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('MyGallery')}>
-                                <Text style={style.buttonText}>My gallery</Text>
+                                <Text style={style.buttonText}>Explore</Text>
                             </TouchableHighlight>
                         </View>
                         <View style={style.buttonContainer}>
@@ -76,6 +71,11 @@ export default class Main extends React.Component {
                                 <Text style={style.buttonText}>Upload an image</Text>
                             </TouchableHighlight>
                         </View>                        
+                        <View style={style.buttonContainer}>
+                            <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('MyGallery')}>
+                                <Text style={style.buttonText}>My gallery</Text>
+                            </TouchableHighlight>
+                        </View>
 
                         <View style={style.buttonContainer}>
                             <TouchableHighlight underlayColor='#3f62aa' style={[ style.buttonLink ]} onPress={() => this.props.navigation.navigate('Favorites')}>

@@ -56,7 +56,7 @@ export default class App extends React.Component {
                     />
                     <Stack.Screen
                         name="HotPage"
-                        options={{ title: 'Hot Page' }}
+                        options={{ title: 'Explore' }}
                         component={HotPage}
                     />
                     <Stack.Screen
