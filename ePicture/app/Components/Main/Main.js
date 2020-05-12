@@ -22,11 +22,11 @@ export default class Main extends React.Component {
 
     componentDidMount () {
         getUserInfos(token)
-            .then((response) => {
-                username = response.data.account_url 
-                }, (error) => {
-                    console.log('error: ', error)
-                    })       
+        .then((response) => {
+            username = response.data.account_url 
+        }, (error) => {
+            console.log('error: ', error)
+        })               
     }
         
     _updateInput (input) {
@@ -52,11 +52,11 @@ export default class Main extends React.Component {
                             placeholder='Search images'
                             onSubmitEditing={() => this.handleSubmit()}
                             />
-                        {/* <View style={style.buttonContainer}>
+                        <View style={style.buttonContainer}>
                             <TouchableHighlight underlayColor='#8246da' style={[ style.buttonSearch ]} onPress={() => this.handleSubmit()}>
                                 <Text style={style.buttonText}>Search</Text>
                             </TouchableHighlight>
-                        </View> */}
+                        </View>
                     </View>
 
                     <View style={style.buttonGroupContainer}>
@@ -110,7 +110,7 @@ const style = StyleSheet.create({
         padding: 10,
         fontSize: 18,
         color: '#666666',
-        width: '90%'
+        width: '63%'
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -120,13 +120,13 @@ const style = StyleSheet.create({
     buttonSearch: {
         marginRight: 20,
         marginTop: 15,
-        padding: 15,
+        padding: 20,
         // paddingLeft: 30,
         // paddingRight: 30,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: "#1e3f83",
-        borderRadius: 4
+        borderRadius: 30
     },
     buttonLink: {
         // marginRight: 20,

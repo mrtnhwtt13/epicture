@@ -21,7 +21,10 @@ export default class Connect extends React.Component {
 
     _changeNavigationState = async (webView) => {
        if (this._splitUrl(webView.url) === true) {           
-        this.props.navigation.navigate('Main');
+        this.props.navigation.reset({
+            index: 0,
+            routes: [{ name: 'Main' }],
+        });
        }
     };
 
