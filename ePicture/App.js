@@ -39,6 +39,11 @@ export default class App extends React.Component {
                         component={HomeScreen}
                     />
                     <Stack.Screen
+                        name="Connect"
+                        options={{headerShown: false}}
+                        component={Connect}
+                    />
+                    <Stack.Screen
                         name="Main"
                         options={{headerShown: false}}
                         component={Main}
@@ -72,12 +77,7 @@ export default class App extends React.Component {
                         name="Failure"
                         options={{ title: 'Failure' }}
                         component={Failure}
-                    />
-                    <Stack.Screen
-                        name="Connect"
-                        options={{headerShown: false}}
-                        component={Connect}
-                    />
+                    />                    
                 </Stack.Navigator>
             </NavigationContainer>
         );
